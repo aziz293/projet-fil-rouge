@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('Install dependencies') {
+            steps {
+                sh 'composer install'
+            }
+        }
+
+        stage('Run tests') {
+            steps {
+                sh 'phpunit'
+            }
+        }
+
+        stage('Build Docker image') {
+            steps {
+                dockerImage 'my-php-image' {
+                    withDockerfile file: 'Dockerfile'
+                    build()
+                    push()
+                }
+            }
+        }
+
+        stage('Deploy to container') {
+            steps {
+                sh 'docker run -d -p 80:80 my-php-image'
+            }
+        }
+    }
+}
+
