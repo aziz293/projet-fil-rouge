@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                sh 'cd terra/'
+                sh 'cd terra'
                 terraformInit()
                 terraformPlan()
                 terraformApply()
