@@ -19,7 +19,7 @@ pipeline {
                 terraformPlan()
                 terraformApply()
                 terraformDestroy()*/
-                sh 'terraform init'
+                //sh 'terraform init'
                 sh 'terraform plan'
                 sh 'terraform apply'
             }
