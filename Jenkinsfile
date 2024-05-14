@@ -15,10 +15,13 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 sh 'cd terra'
-                terraformInit()
+                /*terraformInit()
                 terraformPlan()
                 terraformApply()
-                terraformDestroy()
+                terraformDestroy()*/
+                sh 'terraform init'
+                sh 'terraform plan'
+                sh 'terraform apply'
             }
         }
        /* stage("deploy to Kubernetes") {
