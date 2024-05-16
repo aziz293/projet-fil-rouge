@@ -23,6 +23,7 @@ pipeline {
                 sh 'terraform init'
                 sh 'terraform plan'
                 sh 'echo "yes" | terraform apply -auto-approve'
+                sh 'minikube service php-service'
             }
         }
        /* stage("deploy to Kubernetes") {
