@@ -22,7 +22,7 @@ pipeline {
                 terraformDestroy()*/
                 sh 'terraform init'
                 sh 'terraform plan'
-                sh 'echo "yes" | terraform apply'
+                sh 'echo "yes" | terraform apply -auto-approve'
             }
         }
        /* stage("deploy to Kubernetes") {
