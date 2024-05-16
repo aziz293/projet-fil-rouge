@@ -6,20 +6,14 @@ pipeline {
                 echo "hello world"
             }
         }
-        stage("build") {
+        stage("Build") {
             steps {
                 sh 'docker --version'
                 //sh "docker-compose up -d --build"
             }
         }
-        stage('Terraform Init') {
+        stage('Deploiement sur Terraform') {
             steps {
-                
-               // sh 'cd /Users/bug_as_a_service/.jenkins/workspace/g3/terra/'
-              /*  terraformInit()
-                terraformPlan()
-                terraformApply()
-                terraformDestroy()*/
                 sh 'terraform init'
                 sh 'terraform plan'
                 sh 'echo "yes" | terraform apply -auto-approve'
