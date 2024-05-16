@@ -44,7 +44,8 @@ resource "kubernetes_deployment" "db-deployment" {
             # Mot de passe root pour MySQL (**Attention : stocker le mot de passe en clair est déconseillé !**)
             name = "MYSQL_ROOT_PASSWORD"
             value = "root"
-
+                }
+          env {
             # Nom de la base de données MySQL
             name = "MYSQL_DATABASE"
             value = "profil"
