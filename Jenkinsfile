@@ -15,12 +15,12 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 sh 'cd terra/'
-                /*terraformInit()
+                terraformInit()
                 terraformPlan()
                 terraformApply()
-                terraformDestroy()*/
-                sh 'terraform init'
-                sh 'terraform plan'
+                terraformDestroy()
+               // sh 'terraform init'
+                //sh 'terraform plan'
                 //sh 'terraform apply'
             }
         }
