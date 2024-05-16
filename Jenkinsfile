@@ -12,7 +12,20 @@ pipeline {
                 //sh "docker-compose up -d --build"
             }
         }
-        stage("deploy to Kubernetes") {
+        stage('Terraform Init') {
+            steps {
+                
+                sh 'cd /Users/bug_as_a_service/.jenkins/workspace/g3/terra/'
+              /*  terraformInit()
+                terraformPlan()
+                terraformApply()
+                terraformDestroy()*/
+                sh 'terraform init'
+                sh 'terraform plan'
+                sh 'terraform apply'
+            }
+        }
+       /* stage("deploy to Kubernetes") {
             steps {
                 withCredentials([file(credentialsId: 'testkubernetes', variable: 'KUBECONFIG')]) {
                     script {
@@ -24,7 +37,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
     }
     post {
         success {
