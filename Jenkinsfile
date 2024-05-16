@@ -15,7 +15,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 
-                sh 'cd /Users/bug_as_a_service/.jenkins/workspace/g3/terra/'
+               // sh 'cd /Users/bug_as_a_service/.jenkins/workspace/g3/terra/'
               /*  terraformInit()
                 terraformPlan()
                 terraformApply()
